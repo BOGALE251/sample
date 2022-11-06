@@ -3,6 +3,7 @@ package com.example.demo1;
 import com.example.demo1.dao.UserDAO;
 import com.example.demo1.logging.Loggable;
 import com.example.demo1.model.UserModel;
+import com.example.demo1.performace.Measurable;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -11,6 +12,7 @@ import javax.ws.rs.core.Response;
 import java.util.logging.Logger;
 
 @Loggable
+@Measurable
 @Path("/user")
 public class UserResource {
 

@@ -2,6 +2,7 @@ package com.example.demo1.dao;
 
 import com.example.demo1.logging.Loggable;
 import com.example.demo1.model.UserModel;
+import com.example.demo1.performace.Measurable;
 
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
@@ -10,6 +11,7 @@ import javax.persistence.TypedQuery;
 import javax.ws.rs.BadRequestException;
 
 @Loggable
+@Measurable
 @RequestScoped
 public class UserDAO {
 
