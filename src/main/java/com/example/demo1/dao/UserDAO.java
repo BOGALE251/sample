@@ -7,6 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.ws.rs.BadRequestException;
 
 @Loggable
 @RequestScoped
@@ -15,7 +16,10 @@ public class UserDAO {
     @PersistenceContext
     EntityManager entityManager;
 
-    public void createUser(UserModel user){
+    public void createUser(UserModel user) throws BadRequestException {
+        if(getUser(user.getUserName())!=null){
+            throw new BadRequestException("User already exists");
+        }
         entityManager.persist(user);
     }
 
