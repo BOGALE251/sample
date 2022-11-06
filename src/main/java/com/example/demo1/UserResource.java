@@ -30,6 +30,8 @@ public class UserResource {
         if(!user.getCountry().equals(Country.FRANCE)){
             throw new IllegalArgumentException("Country must be in france");
         }
+        userDao.createUser(user);
+
         return Response.ok().build();
     }
 
