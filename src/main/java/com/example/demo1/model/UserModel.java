@@ -18,18 +18,17 @@ public class UserModel implements Serializable {
     private String userName;
 
     @NotNull
-    @Min(5)
+    @Min(18)
     private int age;
 
     @NotNull
-    @Pattern( regexp = "[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,4}\n", message = "invalid email")
+    @Pattern( regexp = "^(.+)@(.+)$", message = "invalid email")
     private String email;
 
     @NotNull
-    @Enumerated(EnumType.STRING)
-    private Country country;
+    private String country;
 
-    @Pattern( regexp = "[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,4}\n", message = "invalid password recovery email")
+    @Pattern( regexp = "^(.+)@(.+)$", message = "invalid password recovery email")
     private String passwordRecoveryEmail;
 
     public void setUserId(Long userId) {
@@ -73,11 +72,11 @@ public class UserModel implements Serializable {
         this.passwordRecoveryEmail = passwordRecoveryEmail;
     }
 
-    public Country getCountry() {
+    public String getCountry() {
         return country;
     }
 
-    public void setCountry(Country country) {
+    public void setCountry(String country) {
         this.country = country;
     }
 }

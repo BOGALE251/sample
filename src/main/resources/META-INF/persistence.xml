@@ -7,17 +7,15 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>com.example.demo1.model.UserModel</class>
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />
-            <property name="javax.persistence.jdbc.url"
-                      value="jdbc:hsqldb:mem:." />
-            <property name="javax.persistence.jdbc.user" value="SA" />
-            <property name="javax.persistence.jdbc.password" value="" />
-
-            <!-- EclipseLink should create the database schema automatically -->
-            <property name="eclipselink.target-database" value="hsql"/>
-            <property name="eclipselink.ddl-generation" value="create-tables" />
-            <property name="eclipselink.ddl-generation-mode" value="ddl_database_generation" />
-            <property name="eclipselink.ddl-generation.output-mode" value="database" />
+            <property name="eclipselink.target-database"
+                      value="Derby"/>
+            <!-- JDBC connection properties -->
+            <property name="eclipselink.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+            <property name="eclipselink.jdbc.url"
+                      value="jdbc:derby://localhost:1527/testdb;retrieveMessagesFromServerOnGetMessage=true;create=true;"/>
+            <property name="eclipselink.jdbc.user" value="APP"/>
+            <property name="eclipselink.jdbc.password" value="APP"/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
         </properties>
 
     </persistence-unit>

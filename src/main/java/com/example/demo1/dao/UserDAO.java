@@ -8,11 +8,13 @@ import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 import javax.ws.rs.BadRequestException;
 
 @Loggable
 @Measurable
 @RequestScoped
+@Transactional
 public class UserDAO {
 
     @PersistenceContext
@@ -29,6 +31,10 @@ public class UserDAO {
         TypedQuery<UserModel> typedQuery
                 = entityManager.createQuery("SELECT u FROM UserModel u WHERE u.userName=:userName", UserModel.class);
         typedQuery.setParameter("userName", userName);
-        return typedQuery.getSingleResult();
+        try {
+            return typedQuery.getSingleResult();
+        }catch (Exception e){
+            return null;
+        }
     }
 }

@@ -29,12 +29,12 @@ public class UserResource {
         if(user.getAge() < 18){
             throw new IllegalArgumentException("Age must be greater than 18");
         }
-        if(!user.getCountry().equals(Country.FRANCE)){
+        if(!user.getCountry().equalsIgnoreCase(Country.FRANCE.name())){
             throw new IllegalArgumentException("Country must be in france");
         }
         userDao.createUser(user);
 
-        return Response.ok().build();
+        return Response.ok("User added !").build();
     }
 
     @GET
