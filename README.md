@@ -8,8 +8,10 @@ Test were done using postman.
 
 ## Example1 : createUser() service
 
-Method : POST 
+Method : POST
+
 Url : http://localhost:8080/demo1-1.0-SNAPSHOT/api/user
+
 Body : {
     "userName": "John",
     "age" : 19,
@@ -20,4 +22,5 @@ Body : {
 ## Example 2 : getUser service
 
 Method : GET 
+
 Url : http://localhost:8080/demo1-1.0-SNAPSHOT/api/user?userName=John
