@@ -40,8 +40,10 @@ public class UserResource {
     @GET
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUser(String userName){
-
+    public Response getUser(@QueryParam("userName") String userName){
+        if(userName == null){
+            throw new BadRequestException("userName field is empty");
+        }
         UserModel user = userDao.getUser(userName);
         if(user==null){
             throw new NotFoundException();
