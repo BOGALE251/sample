@@ -6,7 +6,7 @@
 
 Test were done using postman. 
 
-## Example1 : createUser() service
+## Example1 : create user service
 
 Method : POST
 
@@ -19,7 +19,7 @@ Body : {
     "country" : "France"
 }
 
-## Example 2 : getUser service
+## Example 2 : get user service
 
 Method : GET 
 
