@@ -4,7 +4,7 @@
 - Glassfish 5.0.1
 - db-derb 10.14.2.0
 
-Test were done using postman. 
+Tests were done using postman. 
 
 ### Example1 : create user service
 
